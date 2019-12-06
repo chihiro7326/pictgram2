@@ -20,11 +20,11 @@ class SessionsController < ApplicationController
   
   private
   def user_params
-    params.require(:user).permit(:name, :eamil, :passworf, :password_confirmation)
+    params.require(:user).permit(:name, :eamil, :password, :password_confirmation)
   end
   
   def log_in(user)
-    session[:user_id] = user_id
+    session[:user_id] = user.id
   end
   
   def log_out

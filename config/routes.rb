@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get 'users/new'
   root 'pages#index'
   get 'pages/help'
+  root to: "home#index"
   
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
