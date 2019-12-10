@@ -27,7 +27,7 @@
               <% end %>
             </li>
             <li>
-              <%= link_to "#" do %>
+              <%= link_to new_topic_path do %>
                 <%= image_tag "icons/camera.png" %>
               <% end %>
             </li>
@@ -55,7 +55,7 @@
     <%= yield %>
     
   <script>
-    $(function()){
+    $(function(){
       $(".alert").fadeOut(5000);
     )};
   </script>
