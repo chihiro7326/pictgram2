@@ -16,9 +16,10 @@ class User < ApplicationRecord
   validates :password, presence: true,
     format: { with: VALID_PASSWORD_REGEX }
     
-  has_many :topics
+  has_many :topics,  dependent: :destroy
   has_many :favorites
+  has_many :comments
   has_many :favorite_topics, through: :favorites, source: 'topic'
-  has_many :comment_topics, through: :comments, source: 'topic'
+  has_many :comment_topics, through: :comments, source: 'topic',  dependent: :destroy
   
 end
