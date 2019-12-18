@@ -11,7 +11,7 @@ class CommentsController < ApplicationController
   def create
     @comment = current_user.comments.new(comment_params)
     
-    if comment.save
+    if @comment.save
       redirect_to topics_path, success: 'コメントしました'
     else
       flash.now[:danger] = 'コメントに失敗しました'
@@ -21,7 +21,7 @@ class CommentsController < ApplicationController
   
   private
   def comment_params
-    params.require(:commemts).permit(:user_id, :topic_id, :comments)
+    params.require(:comment).permit(:user_id, :topic_id,:message)
   end
   
 end
