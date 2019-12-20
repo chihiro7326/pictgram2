@@ -1,7 +1,4 @@
 class CommentsController < ApplicationController
-  def index
-    @comment_topics = current_user.comment_topics
-  end
   
   def new
     @comment = Comment.new
@@ -9,7 +6,10 @@ class CommentsController < ApplicationController
   end
   
   def create
-    @comment = current_user.comments.new(comment_params)
+    @comment = Comment.new
+    @comment.user_id = current_user.id
+    @comment.topic_id = params[:topic_id]
+    @comment.message = params[:message]
     
     if @comment.save
       redirect_to topics_path, success: 'コメントしました'
@@ -21,7 +21,7 @@ class CommentsController < ApplicationController
   
   private
   def comment_params
-    params.require(:comment).permit(:user_id, :topic_id,:message)
+    params.require(:comment).permit(:user_id, :topic_id, :message)
   end
   
 end
