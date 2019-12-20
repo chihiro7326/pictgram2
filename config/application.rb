@@ -11,7 +11,7 @@ module Pictgram
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.2
     config.autoload_paths += Dir[Rails.root.join('app','uploaders')]
-    config.web_console.whitelisted_ips = '106.154.120.8'
+    # config.web_console.whitelisted_ips = '106.154.120.8'
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded after loading
